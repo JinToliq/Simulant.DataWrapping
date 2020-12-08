@@ -7,6 +7,7 @@ namespace j2DataWrapping.Wrapping
     string Name { get; }
     bool IsDirty { get; }
     void SetDirty(bool value);
+    object GetValue();
   }
 
   public class ContextProperty<TValue> : IContextProperty
@@ -26,6 +27,8 @@ namespace j2DataWrapping.Wrapping
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void SetDirty(bool value = true) => IsDirty = value;
+
+    public object GetValue() => Value;
 
     public bool SetValue(TValue value)
     {

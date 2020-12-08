@@ -1,11 +1,22 @@
-﻿namespace j2DataWrapping.Wrapping
+﻿using System;
+using j2DataWrapping.Wrapping.Interfaces;
+
+namespace j2DataWrapping.Wrapping
 {
-  public class ContainerAccessor<TKey, TWrapper, TContext, TContainer>
+  [Obsolete("Use WrapperContainer by itself")]
+  public class ContainerAccessor<TKey, TWrapper, TContext>
     where TWrapper : Wrapper<TContext>, new()
     where TContext : class, new()
-    where TContainer : WrapperContainer<TKey, TWrapper, TContext>, new()
   {
-    private readonly WrapperContainer<TKey, TWrapper, TContext> _container = new TContainer();
+    private readonly WrapperContainer<TKey, TWrapper, TContext> _container;
+
+    public ContainerAccessor(
+      IContextExtractor<TKey, TContext> extractor,
+      IContextSaver<TKey, TContext> saver,
+      IContextUpdater<TKey, TWrapper, TContext> updater)
+    {
+      _container = new WrapperContainer<TKey, TWrapper, TContext>(extractor, saver, updater);
+    }
 
     public TWrapper GetOrBypassCacheUnsafe(TKey id) => _container.GetOrBypassDefault(id);
     public TWrapper GetRead(TKey id) => _container.GetEntityRead(id);

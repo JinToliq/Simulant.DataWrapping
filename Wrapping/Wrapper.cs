@@ -25,7 +25,7 @@ namespace j2DataWrapping.Wrapping
     Wrapper<TContext> EnterWrite<TWarmUpSource>(TWarmUpSource source);
   }
 
-  public class Wrapper<TContext>
+  public abstract class Wrapper<TContext>
     : IWrapper<TContext>,
     IWrapper,
     IDisposable
@@ -37,8 +37,6 @@ namespace j2DataWrapping.Wrapping
 
     public bool IsDirty { get; private set; }
     public DateTime LastAccessTime { get; private set; }
-
-    public Wrapper() { }
 
     public void Dispose()
     {

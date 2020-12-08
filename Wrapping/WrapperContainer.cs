@@ -21,7 +21,7 @@ namespace j2DataWrapping.Wrapping
     TWrapper GetOrBypassDefault(TKey key);
   }
 
-  public abstract class WrapperContainer<TKey, TWrapper, TContext>
+  public class WrapperContainer<TKey, TWrapper, TContext>
     : IWrapperContainer<TKey, TWrapper, TContext>
     where TWrapper : Wrapper<TContext>, IWrapper<TContext>, new()
     where TContext : class, new()
@@ -34,9 +34,9 @@ namespace j2DataWrapping.Wrapping
     private readonly IContextUpdater<TKey, TWrapper, TContext> _contextUpdater;
     private object _locker = new object();
 
-    protected virtual int ObsolescenceTimeSec => DefaultObsolescenceTimeSec;
+    public int ObsolescenceTimeSec { get; set; } = DefaultObsolescenceTimeSec;
 
-    protected WrapperContainer(
+    public WrapperContainer(
       IContextExtractor<TKey, TContext> extractor,
       IContextSaver<TKey, TContext> saver,
       IContextUpdater<TKey, TWrapper, TContext> updater)
