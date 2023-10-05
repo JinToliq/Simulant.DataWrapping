@@ -7,7 +7,7 @@ public static class Repository
 {
   private static readonly ConcurrentDictionary<Type, IEntityRepository> _repositories = new();
 
-  public static void RegisterRepository<TKey, TData>(IEntityRepository<TKey, TData> repository) where TData : class, new()
+  public static void Register<TKey, TData>(IEntityRepository<TKey, TData> repository) where TData : class, new()
   {
     var added = _repositories.TryAdd(typeof(TData), repository);
     if (!added)

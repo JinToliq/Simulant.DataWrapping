@@ -1,16 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>11</LangVersion>
+    <Company>JinToliq</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Simulant.DataWrapping</Title>
+    <Authors>JinToliq</Authors>
+    <Description>Easy way to manage read and write access to stored data</Description>
+    <PackageProjectUrl>https://github.com/JinToliq/Simulant.DataWrapping</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JinToliq/Simulant.DataWrapping</RepositoryUrl>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
-
   <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
     <PackageReference Include="NLog" Version="5.2.4" />
   </ItemGroup>
-
-
-
-
-
 </Project>
