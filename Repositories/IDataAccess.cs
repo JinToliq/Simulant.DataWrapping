@@ -1,11 +1,12 @@
+using System.Threading.Tasks;
+
 namespace Simulant.DataWrapping.Repositories;
 
 public interface IDataAccess<TKey, TData>
   where TData : class, new()
 {
-  void Save(TKey key, TData data);
-  void Update(TKey key, TData entity);
-  bool Load(TKey key, out TData context);
-  TData CreateNew(TKey key);
-  void Delete(TKey key);
+  Task SaveAsync(TKey key, TData data);
+  Task<TData> LoadAsync(TKey key);
+  Task<TData> CreateNewAsync(TKey key);
+  Task DeleteAsync(TKey key);
 }

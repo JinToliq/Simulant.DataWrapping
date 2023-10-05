@@ -1,6 +1,8 @@
+using System;
+
 namespace Simulant.DataWrapping.Data;
 
-public interface IEntity
+public interface IEntity : IDisposable, IAsyncDisposable
 { }
 
 public interface IEntity<TKey, TData> : IEntity where TData : class, new()
