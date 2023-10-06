@@ -13,6 +13,7 @@
     <PackageProjectUrl>https://github.com/JinToliq/Simulant.DataWrapping</PackageProjectUrl>
     <RepositoryUrl>https://github.com/JinToliq/Simulant.DataWrapping</RepositoryUrl>
     <SignAssembly>true</SignAssembly>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\"/>
