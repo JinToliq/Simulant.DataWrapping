@@ -2,6 +2,7 @@
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
     <LangVersion>11</LangVersion>
     <Company>JinToliq</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
